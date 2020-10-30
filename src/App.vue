@@ -25,7 +25,8 @@
               </div>
               <activity-item v-for="activity in activities" 
                              :key="activity.id"
-                             :activity="activity" 
+                             :activity="activity"
+                             :categories="categories" 
               />
             </div>
             <div v-if="!isFetching && !error">

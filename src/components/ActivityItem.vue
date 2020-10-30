@@ -1,6 +1,10 @@
 <template>
   <article class="post">
-    <h4>{{ activity.title }}</h4>
+    <h4 class="title">
+      {{ activity.title }}
+    </h4>
+    <p>{{ textUtility_capitalize(categories[activity.category].text) }}</p>
+    <p>{{ activity.notes }}</p>
     <div class="media">
       <div class="media-left">
         <p class="image is-32x32">
@@ -22,8 +26,15 @@
 </template>
 
 <script>
+  import textUtility from '../mixins/textUtility'
+
 export default {
+  mixins: [textUtility],
   props: {
+    categories: {
+      type: Object,
+      required: true
+    },
     activity: {
       type: Object,
       required: true
@@ -56,5 +67,9 @@ export default {
 
   .color-green {
     color: green;
+  }
+
+  .post .title {
+    margin-bottom: 5px;
   }
 </style>

@@ -3,7 +3,7 @@ const activities = {
       id: '1546968934',
       title: 'Learn Vue.js',
       notes: 'I started today and it was not good.',
-      progress: 0,
+      progress: 100,
       category: '1546969049',
       createdAt: 1546969144391,
       updatedAt: 1546969144391
@@ -12,7 +12,7 @@ const activities = {
       id: '1546969212',
       title: 'Read Witcher Books',
       notes: 'These books are super nice',
-      progress: 0,
+      progress: 50,
       category: '1546969049',
       createdAt: 1546969144391,
       updatedAt: 1546969144391
@@ -21,7 +21,6 @@ const activities = {
 
 const canContinue = () => {
   const rndNumber = Math.floor(Math.random() * 10);
-  console.log(rndNumber);
   if(rndNumber > 5) {
     return true;
   }
@@ -36,9 +35,9 @@ export const fetchActivities = () => {
       if(canContinue()) {
         resolve(activities);
       } else {
-        reject('Error!');
+        reject('Fetching failure!');
       }
-    }, 2000)
+    }, 1000)
   });
 
 }

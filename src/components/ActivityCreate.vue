@@ -47,6 +47,7 @@
               <option 
                 v-for="category in categories" 
                 :key="category.id" 
+                :value="category.id"
               >
                 {{ category.text }}
               </option>
